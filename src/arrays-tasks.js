@@ -125,8 +125,18 @@ function getStringsLength(arr) {
  *   getAverage([ 1, 10, 100, 1000 ])  => 277,75
  *   getAverage([ 2, 3, 3 ])  => 2,67
  */
-function getAverage(/* arr */) {
-  throw new Error('Not implemented');
+function getAverage(arr) {
+  let result;
+  if (!arr.length) {
+    result = 0;
+  } else {
+    const sum = arr.reduce((acc, el) => acc + el, 0);
+    result = sum / arr.length;
+    if (result % 1 !== 0) {
+      result = Number(result.toFixed(2));
+    }
+  }
+  return result;
 }
 
 /**
@@ -263,8 +273,9 @@ function distinct(arr) {
  *    createNDimensionalArray(4, 2) => [[[[0, 0], [0, 0]], [[0, 0], [0, 0]]], [[[0, 0], [0, 0]], [[0, 0], [0, 0]]]]
  *    createNDimensionalArray(1, 1) => [0]
  */
-function createNDimensionalArray(/* n, size */) {
-  throw new Error('Not implemented');
+function createNDimensionalArray(n, size) {
+  if (n === 1) return Array(size).fill(0);
+  return Array(size).fill(createNDimensionalArray(n - 1, size));
 }
 
 /**
