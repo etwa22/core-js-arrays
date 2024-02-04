@@ -20,8 +20,11 @@
  *    getIntervalArray(0, 100) => [ 0, 1, 2, ..., 100 ]
  *    getIntervalArray(3, 3) => [ 3 ]
  */
-function getIntervalArray(/* start, end */) {
-  throw new Error('Not implemented');
+function getIntervalArray(start, end) {
+  const length = end - start + 1;
+  const arr = new Array(length);
+  arr.fill(start);
+  return Array.from(arr, (elem, index) => elem + index);
 }
 
 /**
@@ -74,8 +77,8 @@ function findElement(arr, value) {
  *    findAllOccurrences([ null, undefined, null ], null) => 2
  *    findAllOccurrences([ true, 0, 1, 'true' ], true) => 1
  */
-function findAllOccurrences(/* arr, item */) {
-  throw new Error('Not implemented');
+function findAllOccurrences(arr, item) {
+  return arr.filter((elem) => elem === item).length;
 }
 
 /**
